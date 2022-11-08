@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shop_app/ui/cart/views/cart_screen.dart';
 import 'package:shop_app/ui/homepage/components/body.dart';
 import 'package:shop_app/ui/homepage/components/navbar.dart';
 import 'package:shop_app/ui/product/view/product_overview.dart';
@@ -66,7 +67,7 @@ class _HomeState extends State<Home> {
         body: const TabBarView(
           children: <Widget>[
             Center(
-              child: Body() ,
+              child: Body(),
             ),
             Center(
               child: ProductsOverview(),
@@ -75,16 +76,14 @@ class _HomeState extends State<Home> {
               child: Text('data'),
             ),
             Center(
-              child: Text("It's rainy here"),
+              child: CartScreeen(),
             ),
             Center(
               child: Text("It's sunny here"),
             ),
           ],
         ),
-          
       ),
     );
   }
 }
-

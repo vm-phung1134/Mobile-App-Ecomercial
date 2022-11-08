@@ -30,7 +30,7 @@ class Body extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 0),
                 child: CollectionCard(
                   image: "assets/images/colection_3.jpg",
-                  title: "BST: SPRING",
+                  title: "MÙA ĐÔNG ẤM ÁP",
                   press: () {},
                 ),
               ),
@@ -38,7 +38,7 @@ class Body extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 0),
                 child: CollectionCard(
                   image: "assets/images/colection_1.jpg",
-                  title: "BST: SPRING",
+                  title: "MÙA XUÂN GIÁ RÉT",
                   press: () {},
                 ),
               ),
@@ -46,7 +46,7 @@ class Body extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 0),
                 child: CollectionCard(
                   image: "assets/images/colection_2.jpg",
-                  title: "BST: SPRING",
+                  title: "MÙA HẠ MƯA SML",
                   press: () {},
                 ),
               ),
@@ -55,7 +55,6 @@ class Body extends StatelessWidget {
           // danh mục sản phẩm
         ]),
       ),
-      
     );
   }
 }
