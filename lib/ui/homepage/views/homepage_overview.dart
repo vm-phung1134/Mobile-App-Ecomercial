@@ -4,6 +4,7 @@ import 'package:shop_app/ui/cart/views/cart_screen.dart';
 import 'package:shop_app/ui/homepage/components/body.dart';
 import 'package:shop_app/ui/homepage/components/navbar.dart';
 import 'package:shop_app/ui/product/view/product_overview.dart';
+import 'package:shop_app/ui/auth/auth_screen.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -79,7 +80,7 @@ class _HomeState extends State<Home> {
               child: CartScreeen(),
             ),
             Center(
-              child: Text("It's sunny here"),
+              child: Text("User profile"),
             ),
           ],
         ),
