@@ -49,8 +49,8 @@ class AuthManager with ChangeNotifier {
       _authTimer!.cancel();
       _authTimer = null;
     }
-    notifyListeners();
     _authService.clearSavedAuthToken();
+    notifyListeners();
   }
 
   void _autoLogout() {

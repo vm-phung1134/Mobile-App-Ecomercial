@@ -56,13 +56,7 @@ class MyApp extends StatelessWidget {
           initialRoute: authManager.isAuth ? '/home' : '/auth',
           routes: {
             '/home': (context) => const SafeArea(child: Home()),
-            '/auth': (_) => FutureBuilder(
-                future: authManager.tryAutoLogin(),
-                builder: (context, snapshot) {
-                  return snapshot.connectionState == ConnectionState.waiting
-                      ? const SplashScreen()
-                      : const AuthScreen();
-                })
+            '/auth': (_) => const AuthScreen()
           },
           onGenerateRoute: (settings) {
             if (settings.name == ProductDetail.routeName) {

@@ -13,6 +13,7 @@ dependencies:
     flutter_dotenv: ^5.0.2
     http: ^0.13.5
     shared_preferences: ^2.0.15
+    carousel_slider: ^4.1.1
 
     cupertino_icons: ^1.0.2
     flutter_svg: ^1.0.3

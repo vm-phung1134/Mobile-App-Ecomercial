@@ -44,8 +44,10 @@ class ProductsManager with ChangeNotifier {
     return _items.firstWhere((element) => element.id == id);
   }
 
-  Product findByName(String title) {
-    return _items.firstWhere((element) => element.title == title);
+  List<Product> findByName(String title) {
+    return [
+      ..._items.where((element) => element.title.toLowerCase().contains(title))
+    ];
   }
 
   void addProduct(Product product) {

@@ -4,6 +4,7 @@ import 'package:shop_app/ui/cart/views/cart_screen.dart';
 import 'package:shop_app/ui/homepage/components/body.dart';
 import 'package:shop_app/ui/homepage/components/navbar.dart';
 import 'package:shop_app/ui/product/view/product_overview.dart';
+import 'package:shop_app/ui/search/search_screen.dart';
 import 'package:shop_app/ui/user_profile/logout.dart';
 
 class Home extends StatefulWidget {
@@ -66,7 +67,7 @@ class _HomeState extends State<Home> {
           ),
           titleSpacing: 20,
         ),
-        body: const TabBarView(
+        body: TabBarView(
           children: <Widget>[
             Center(
               child: Body(),
@@ -75,7 +76,7 @@ class _HomeState extends State<Home> {
               child: ProductsOverview(),
             ),
             Center(
-              child: Text('data'),
+              child: SearchScreen(),
             ),
             Center(
               child: CartScreeen(),
