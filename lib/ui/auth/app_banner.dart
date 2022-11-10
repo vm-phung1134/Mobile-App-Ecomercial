@@ -1,6 +1,3 @@
-import 'dart:js_util';
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 class AppBanner extends StatelessWidget {
@@ -15,7 +12,7 @@ class AppBanner extends StatelessWidget {
       child: Text(
         'Welcome To PPUL Store',
         style: TextStyle(
-          fontSize: 40,
+          fontSize: 30,
           foreground: Paint()
             ..style = PaintingStyle.stroke
             ..strokeWidth = 2

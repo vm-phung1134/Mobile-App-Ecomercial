@@ -43,16 +43,27 @@ class MyApp extends StatelessWidget {
               secondary: const Color.fromARGB(255, 255, 253, 253),
             ),
           ),
-          home: authManager.isAuth
-              ? const SafeArea(child: Home())
-              : FutureBuilder(
-                  future: authManager.tryAutoLogin(),
-                  builder: (context, snapshot) {
-                    return snapshot.connectionState == ConnectionState.waiting
-                        ? const SplashScreen()
-                        : const AuthScreen();
-                  },
-                ),
+          // home: authManager.isAuth
+          //     ? const SafeArea(child: Home())
+          //     : FutureBuilder(
+          //         future: authManager.tryAutoLogin(),
+          //         builder: (context, snapshot) {
+          //           return snapshot.connectionState == ConnectionState.waiting
+          //               ? const SplashScreen()
+          //               : const AuthScreen();
+          //         },
+          //       ),
+          initialRoute: authManager.isAuth ? '/home' : '/auth',
+          routes: {
+            '/home': (context) => const SafeArea(child: Home()),
+            '/auth': (_) => FutureBuilder(
+                future: authManager.tryAutoLogin(),
+                builder: (context, snapshot) {
+                  return snapshot.connectionState == ConnectionState.waiting
+                      ? const SplashScreen()
+                      : const AuthScreen();
+                })
+          },
           onGenerateRoute: (settings) {
             if (settings.name == ProductDetail.routeName) {
               final productId = settings.arguments as String;

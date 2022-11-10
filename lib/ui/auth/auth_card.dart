@@ -49,6 +49,8 @@ class _AuthCardState extends State<AuthCard> {
               _authData['password']!,
             );
       }
+
+      Navigator.of(context).pushReplacementNamed('/home');
     } catch (error) {
       showErrorDialog(
           context,
@@ -113,7 +115,7 @@ class _AuthCardState extends State<AuthCard> {
                     if (isSubmitting) {
                       return const CircularProgressIndicator();
                     }
-                    return _buildSubmitButton(deviceSize.width);
+                    return _buildSubmitButton();
                   },
                 ),
                 const SizedBox(
@@ -143,7 +145,7 @@ class _AuthCardState extends State<AuthCard> {
     );
   }
 
-  Widget _buildSubmitButton(deviceSizeWidth) {
+  Widget _buildSubmitButton() {
     return ElevatedButton(
       onPressed: _submit,
       style: ElevatedButton.styleFrom(
@@ -151,7 +153,7 @@ class _AuthCardState extends State<AuthCard> {
           borderRadius: BorderRadius.circular(30),
         ),
         backgroundColor: Theme.of(context).primaryColor,
-        padding: const EdgeInsets.symmetric(horizontal: 130.0, vertical: 20.0),
+        padding: const EdgeInsets.symmetric(horizontal: 100.0, vertical: 20.0),
         textStyle: TextStyle(
           color: Theme.of(context).primaryTextTheme.headline6?.color,
         ),

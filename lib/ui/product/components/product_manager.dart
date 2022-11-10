@@ -44,6 +44,10 @@ class ProductsManager with ChangeNotifier {
     return _items.firstWhere((element) => element.id == id);
   }
 
+  Product findByName(String title) {
+    return _items.firstWhere((element) => element.title == title);
+  }
+
   void addProduct(Product product) {
     _items.add(
       product.copyWith(

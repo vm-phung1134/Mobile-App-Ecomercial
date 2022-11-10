@@ -4,9 +4,10 @@ import 'package:shop_app/ui/cart/views/cart_screen.dart';
 import 'package:shop_app/ui/homepage/components/body.dart';
 import 'package:shop_app/ui/homepage/components/navbar.dart';
 import 'package:shop_app/ui/product/view/product_overview.dart';
-import 'package:shop_app/ui/auth/auth_screen.dart';
+import 'package:shop_app/ui/user_profile/logout.dart';
 
 class Home extends StatefulWidget {
+  static const routeName = '/home';
   const Home({Key? key}) : super(key: key);
 
   @override
@@ -80,7 +81,7 @@ class _HomeState extends State<Home> {
               child: CartScreeen(),
             ),
             Center(
-              child: Text("User profile"),
+              child: UserProfileScreen(),
             ),
           ],
         ),
