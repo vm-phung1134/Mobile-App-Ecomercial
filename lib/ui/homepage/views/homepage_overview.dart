@@ -4,6 +4,7 @@ import 'package:shop_app/ui/cart/views/cart_screen.dart';
 import 'package:shop_app/ui/homepage/components/body.dart';
 import 'package:shop_app/ui/homepage/components/navbar.dart';
 import 'package:shop_app/ui/product/view/product_overview.dart';
+import 'package:shop_app/ui/product/view/user_products_screen.dart';
 import 'package:shop_app/ui/search/search_screen.dart';
 import 'package:shop_app/ui/user_profile/logout.dart';
 
@@ -20,7 +21,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return DefaultTabController(
       initialIndex: 0,
-      length: 5,
+      length: 6,
       child: Scaffold(
         drawer: Navbar(),
         appBar: AppBar(
@@ -61,13 +62,16 @@ class _HomeState extends State<Home> {
                 icon: Icon(Icons.shopping_cart, color: Colors.black),
               ),
               Tab(
+                icon: Icon(Icons.edit, color: Colors.black),
+              ),
+              Tab(
                 icon: Icon(Icons.person, color: Colors.black),
               ),
             ],
           ),
-          titleSpacing: 20,
+          titleSpacing: 15,
         ),
-        body: TabBarView(
+        body: const TabBarView(
           children: <Widget>[
             Center(
               child: Body(),
@@ -80,6 +84,9 @@ class _HomeState extends State<Home> {
             ),
             Center(
               child: CartScreeen(),
+            ),
+            Center(
+              child: UserProductsScreen(),
             ),
             Center(
               child: UserProfileScreen(),
