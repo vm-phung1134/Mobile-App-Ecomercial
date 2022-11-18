@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:shop_app/ui/product/components/product_grid.dart';
 
 import 'package:provider/provider.dart';
-import '../../product/components/product_grid_title.dart';
-import '../../product/components/product_manager.dart';
-import '../../../../models/product.dart';
+import '../product/components/product_grid_title.dart';
+import '../product/components/product_manager.dart';
+import '../../../models/product.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});

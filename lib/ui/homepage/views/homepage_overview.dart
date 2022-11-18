@@ -4,7 +4,7 @@ import 'package:shop_app/ui/cart/views/cart_screen.dart';
 import 'package:shop_app/ui/homepage/components/body.dart';
 import 'package:shop_app/ui/homepage/components/navbar.dart';
 import 'package:shop_app/ui/product/view/product_overview.dart';
-import 'package:shop_app/ui/search/v%E1%BB%89ews/search_screen.dart';
+import 'package:shop_app/ui/search/search_screen.dart';
 import 'package:shop_app/ui/user_profile/logout.dart';
 import 'package:shop_app/ui/product/view/user_products_screen.dart';
 
