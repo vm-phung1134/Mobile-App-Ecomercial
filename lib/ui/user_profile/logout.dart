@@ -9,21 +9,17 @@ class UserProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Thông tin của bạn',
-          style: TextStyle(color: Colors.black),
-        ),
-        backgroundColor: Colors.white,
-      ),
+      // appBar: AppBar(
+      //   title: const Text(
+      //     'Thông tin của bạn',
+      //     style: TextStyle(color: Colors.black),
+      //   ),
+      //   backgroundColor: Colors.white,
+      // ),
       body: Column(
         children: [
           const SizedBox(
             height: 20,
-          ),
-          _buildEmailField(),
-          const SizedBox(
-            height: 10,
           ),
           Center(
             child: ElevatedButton(

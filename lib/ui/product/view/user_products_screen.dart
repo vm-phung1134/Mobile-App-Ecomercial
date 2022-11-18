@@ -16,19 +16,25 @@ class UserProductsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final productsManager = ProductsManager();
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Quản lý sản phẩm"),
+      ),
       // drawer: const AppDrawer(),
-      body: FutureBuilder(
-        future: _refreshProducts(context),
-        builder: (ctx, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-          return RefreshIndicator(
-              child: buildUserProductListView(productsManager),
-              onRefresh: () => _refreshProducts(context));
-        },
+      body: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 15.0),
+        child: FutureBuilder(
+          future: _refreshProducts(context),
+          builder: (ctx, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+            return RefreshIndicator(
+                child: buildUserProductListView(productsManager),
+                onRefresh: () => _refreshProducts(context));
+          },
+        ),
       ),
       bottomNavigationBar: buildAddButton(context),
     );

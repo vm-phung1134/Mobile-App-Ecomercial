@@ -20,7 +20,7 @@ class CartCard extends StatelessWidget {
         leading: SizedBox(
           height: 50,
           width: 50,
-          child: Image.asset(
+          child: Image.network(
             card.image,
             fit: BoxFit.cover,
           ),

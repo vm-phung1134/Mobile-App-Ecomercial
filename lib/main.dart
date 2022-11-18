@@ -8,6 +8,7 @@ import 'package:shop_app/ui/product/components/product_manager.dart';
 import 'package:shop_app/ui/product/view/edit_product_screen.dart';
 import 'package:shop_app/ui/product/view/product_detail.dart';
 import 'package:provider/provider.dart';
+import 'package:shop_app/ui/product/view/user_products_screen.dart';
 
 Future<void> main() async {
   // Load the .env file
@@ -58,7 +59,8 @@ class MyApp extends StatelessWidget {
           initialRoute: authManager.isAuth ? '/home' : '/auth',
           routes: {
             '/home': (context) => const SafeArea(child: Home()),
-            '/auth': (_) => const AuthScreen()
+            '/auth': (_) => const AuthScreen(),
+            '/user-products': (_) => const UserProductsScreen()
           },
           onGenerateRoute: (settings) {
             if (settings.name == ProductDetail.routeName) {
