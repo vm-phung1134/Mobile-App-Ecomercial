@@ -16,10 +16,11 @@ class AuthToken {
   }
 
   String? get token {
-    if (_expiryDate.isAfter(DateTime.now())) {
-      return _token;
-    }
-    return null;
+    // if (_expiryDate.isAfter(DateTime.now())) {
+    //   return _token;
+    // }
+    // return null;
+    return _token;
   }
 
   String get userId {

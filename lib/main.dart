@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:shop_app/models/cart.dart';
 import 'package:shop_app/ui/auth/auth_manager.dart';
 import 'package:shop_app/ui/auth/auth_screen.dart';
 import 'package:shop_app/ui/cart/components/cart_manager.dart';

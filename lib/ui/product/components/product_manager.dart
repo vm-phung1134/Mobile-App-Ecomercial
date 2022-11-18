@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/models/product.dart';
+import '../../../models/product.dart';
+import '../../../services/products_service.dart';
+import '../../../models/auth_token.dart';
 
 import '../../../models/auth_token.dart';
 import '../../../models/product.dart';
@@ -74,7 +76,6 @@ class ProductsManager with ChangeNotifier {
       ..._items.where((element) => element.title.toLowerCase().contains(title))
     ];
   }
-
   // void addProduct(Product product) {
   //   _items.add(
   //     product.copyWith(

@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
@@ -40,6 +41,9 @@ class AuthService {
       }
 
       final authToken = _fromJson(responseJson);
+      log(authToken.token!);
+      log(authToken.userId);
+
       _saveAuthToken(authToken);
 
       return authToken;

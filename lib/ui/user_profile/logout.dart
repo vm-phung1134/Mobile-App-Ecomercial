@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../auth/auth_manager.dart';
 
@@ -32,7 +33,7 @@ class UserProfileScreen extends StatelessWidget {
                       const EdgeInsets.symmetric(horizontal: 90, vertical: 20),
                   shape: const StadiumBorder()),
               onPressed: () {
-                AuthManager().logout();
+                context.read<AuthManager>().logout();
                 Navigator.of(context).pushReplacementNamed('/auth');
               },
               child: const Text(
