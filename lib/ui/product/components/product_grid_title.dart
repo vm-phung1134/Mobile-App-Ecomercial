@@ -2,27 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:shop_app/models/product.dart';
 import '../view/product_detail.dart';
 
-class ProductGridTile extends StatelessWidget{
+class ProductGridTile extends StatelessWidget {
   const ProductGridTile(
-    this.product,{
-      super.key,
-    }
-  );
+    this.product, {
+    super.key,
+  });
   final Product product;
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(3),
       child: GridTile(
         footer: buildGridFooterBar(context),
         child: GestureDetector(
-          onTap: (){
+          onTap: () {
             Navigator.of(context).pushNamed(
               ProductDetail.routeName,
               arguments: product.id,
             );
           },
-          child: Image.asset(
+          child: Image.network(
             product.img,
             fit: BoxFit.cover,
           ),
@@ -30,15 +29,14 @@ class ProductGridTile extends StatelessWidget{
       ),
     );
   }
-  Widget buildGridFooterBar(BuildContext context){
+
+  Widget buildGridFooterBar(BuildContext context) {
     return GridTileBar(
-      backgroundColor:Color.fromARGB(115, 24, 24, 24),
+      backgroundColor: Color.fromARGB(115, 24, 24, 24),
       leading: IconButton(
-        icon: const Icon(
-          Icons.favorite 
-        ),
+        icon: const Icon(Icons.favorite),
         color: Theme.of(context).colorScheme.secondary,
-        onPressed: (){
+        onPressed: () {
           print('Toggle a favorate product');
         },
       ),
@@ -46,7 +44,9 @@ class ProductGridTile extends StatelessWidget{
         children: [
           Text(
             product.title,
-            style: TextStyle(fontSize: 16, ),
+            style: TextStyle(
+              fontSize: 16,
+            ),
             textAlign: TextAlign.center,
           ),
           Text(
