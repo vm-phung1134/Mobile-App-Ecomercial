@@ -7,6 +7,7 @@ import 'package:shop_app/ui/product/view/product_overview.dart';
 import 'package:shop_app/ui/product/view/user_products_screen.dart';
 import 'package:shop_app/ui/search/search_screen.dart';
 import 'package:shop_app/ui/user_profile/logout.dart';
+import 'package:shop_app/ui/product/view/user_products_screen.dart';
 
 class Home extends StatefulWidget {
   static const routeName = '/home';
@@ -21,12 +22,13 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return DefaultTabController(
       initialIndex: 0,
-      length: 6,
+      length: 4,
       child: Scaffold(
         drawer: Navbar(),
         appBar: AppBar(
           backgroundColor: const Color.fromARGB(0, 94, 92, 92),
           elevation: 0,
+          iconTheme: const IconThemeData(color: Colors.black),
           title: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             SvgPicture.asset("assets/icons/Location.svg"),
             const SizedBox(width: 8),
@@ -56,20 +58,14 @@ class _HomeState extends State<Home> {
                 icon: Icon(Icons.newspaper, color: Colors.black),
               ),
               Tab(
-                icon: Icon(Icons.search, color: Colors.black),
-              ),
-              Tab(
                 icon: Icon(Icons.shopping_cart, color: Colors.black),
-              ),
-              Tab(
-                icon: Icon(Icons.edit, color: Colors.black),
               ),
               Tab(
                 icon: Icon(Icons.person, color: Colors.black),
               ),
             ],
           ),
-          titleSpacing: 15,
+          titleSpacing: 25,
         ),
         body: const TabBarView(
           children: <Widget>[
@@ -80,13 +76,7 @@ class _HomeState extends State<Home> {
               child: ProductsOverview(),
             ),
             Center(
-              child: SearchScreen(),
-            ),
-            Center(
               child: CartScreeen(),
-            ),
-            Center(
-              child: UserProductsScreen(),
             ),
             Center(
               child: UserProfileScreen(),

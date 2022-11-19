@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../auth/auth_manager.dart';
+
 class Navbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -6,13 +10,15 @@ class Navbar extends StatelessWidget {
       child: ListView(
         children: [
           UserAccountsDrawerHeader(
-            accountName: Text('PPul Store',
-            style: Theme.of(context).textTheme.subtitle1!.
-            copyWith(fontSize: 23, color: Color.fromARGB(255, 0, 0, 0)),
+            accountName: Text(
+              'PPul Store',
+              style: Theme.of(context)
+                  .textTheme
+                  .subtitle1!
+                  .copyWith(fontSize: 23, color: Color.fromARGB(255, 0, 0, 0)),
             ),
-             
             accountEmail: Text('3/2 -- NINH KIỀU - CẦN THƠ',
-            style: Theme.of(context).textTheme.subtitle2),
+                style: Theme.of(context).textTheme.subtitle2),
             currentAccountPicture: CircleAvatar(
               child: ClipOval(
                 child: Image.asset(
@@ -23,9 +29,8 @@ class Navbar extends StatelessWidget {
                 ),
               ),
             ),
-            decoration: const BoxDecoration(
-              color: Color.fromARGB(255, 176, 202, 255)
-            ),
+            decoration:
+                const BoxDecoration(color: Color.fromARGB(255, 176, 202, 255)),
           ),
           ListTile(
             leading: Icon(Icons.pages),
@@ -49,14 +54,24 @@ class Navbar extends StatelessWidget {
           ),
           Divider(),
           ListTile(
+            leading: Icon(Icons.edit),
+            title: Text('QUẢN LÝ SẢN PHẨM'),
+            onTap: () {
+              Navigator.of(context).pushNamed('/user-products');
+            },
+          ),
+          ListTile(
             leading: Icon(Icons.support),
             title: Text('LIÊN HỆ'),
             onTap: () => null,
           ),
           ListTile(
             leading: Icon(Icons.exit_to_app),
-            title: Text('HỆ THỐNG CỬA HÀNG'),
-            onTap: () => null,
+            title: Text('ĐĂNG XUẤT'),
+            onTap: () {
+              context.read<AuthManager>().logout();
+              Navigator.of(context).pushReplacementNamed('/auth');
+            },
           )
         ],
       ),

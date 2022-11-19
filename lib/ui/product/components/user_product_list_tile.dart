@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../view/edit_product_screen.dart';
 import 'product_manager.dart';
 import 'package:provider/provider.dart';
 
@@ -13,7 +14,7 @@ class UserProductListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       leading: SizedBox(
-        child: Image.asset(
+        child: Image.network(
           product.img,
           fit: BoxFit.cover,
         ),
@@ -48,8 +49,8 @@ class UserProductListTile extends StatelessWidget {
     return IconButton(
       icon: const Icon(Icons.edit),
       onPressed: () {
-        // Navigator.of(context)
-        //     .pushNamed(EditProductScreen.routeName, arguments: product.id);
+        Navigator.of(context)
+            .pushNamed(EditProductScreen.routeName, arguments: product.id);
       },
       color: Theme.of(context).primaryColor,
     );

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shop_app/models/product.dart';
 import '../view/product_detail.dart';
+import '../../cart/components/cart_manager.dart';
 
 class ProductGridTile extends StatelessWidget {
   const ProductGridTile(
@@ -21,7 +23,7 @@ class ProductGridTile extends StatelessWidget {
               arguments: product.id,
             );
           },
-          child: Image.asset(
+          child: Image.network(
             product.img,
             fit: BoxFit.cover,
           ),
@@ -60,7 +62,19 @@ class ProductGridTile extends StatelessWidget {
           Icons.shopping_cart,
         ),
         onPressed: () {
-          print('Add item to cart');
+          final cart = context.read<CartManager>();
+          cart.addItem(product);
+          ScaffoldMessenger.of(context)
+            ..hideCurrentMaterialBanner()
+            ..showSnackBar(SnackBar(
+                content: const Text('Sản phẩm đã được thêm vào giỏ hàng'),
+                duration: const Duration(seconds: 2),
+                action: SnackBarAction(
+                  label: 'Hoàn tác',
+                  onPressed: (() {
+                    cart.removeSingleItem(product.id!);
+                  }),
+                )));
         },
         color: Theme.of(context).colorScheme.secondary,
       ),

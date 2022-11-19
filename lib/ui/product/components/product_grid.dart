@@ -5,15 +5,15 @@ import 'product_manager.dart';
 import '../../../models/product.dart';
 
 class ProductsGrid extends StatelessWidget {
-  const ProductsGrid({super.key});
-
+  const ProductsGrid(this.searchValue, {super.key});
+  final String searchValue;
   @override
   Widget build(BuildContext context) {
     final products = context.select<ProductsManager, List<Product>>(
-        (productsManager) => productsManager.items);
+        (productsManager) => productsManager.findByName(searchValue));
     return GridView.builder(
       padding: const EdgeInsets.all(10.0),
-      itemCount: ProductsManager().itemCount,
+      itemCount: products.length,
       itemBuilder: (ctx, i) => ProductGridTile(products[i]),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,

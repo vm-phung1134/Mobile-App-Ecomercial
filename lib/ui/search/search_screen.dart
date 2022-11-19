@@ -46,7 +46,7 @@ class _SearchScreenState extends State<SearchScreen> {
           child: TextFormField(
             controller: searchValueController,
             onChanged: (text) {
-              this.setState(() {
+              setState(() {
                 searchValue = text;
               });
             },

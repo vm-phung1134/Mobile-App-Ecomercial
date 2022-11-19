@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:http/http.dart' as http;
 
@@ -13,19 +12,22 @@ class ProductsService extends FirebaseService {
 
   Future<List<Product>> fetchProducts([bool filterByUser = false]) async {
     final List<Product> products = [];
-
     try {
       final filters =
-          filterByUser ? 'orderBy = "creatorId"&equalTo="$userId"' : '';
+          filterByUser ? 'orderBy="creatorId"&equalTo="$userId"' : '';
       final productsUrl =
           Uri.parse('$databaseUrl/products.json?auth=$token&$filters');
       final response = await http.get(productsUrl);
-      final productsMap = json.decode(response.body) as Map<String, dynamic>;
+      final producstMap = json.decode(response.body) as Map<String, dynamic>;
 
       if (response.statusCode != 200) {
-        print(productsMap['error']);
+        print(producstMap['error']);
         return products;
       }
+
+      producstMap.forEach((productId, product) {
+        products.add(Product.fromJson({'id': productId, ...product}));
+      });
       return products;
     } catch (error) {
       print(error);
@@ -34,7 +36,6 @@ class ProductsService extends FirebaseService {
   }
 
   Future<Product?> addProduct(Product product) async {
-    log(token!);
     try {
       final url = Uri.parse('$databaseUrl/products.json?auth=$token');
       final response = await http.post(url,
@@ -48,6 +49,40 @@ class ProductsService extends FirebaseService {
     } catch (error) {
       print(error);
       return null;
+    }
+  }
+
+  Future<bool> updateProduct(Product product) async {
+    try {
+      final url =
+          Uri.parse('$databaseUrl/products/${product.id}.json?auth=$token');
+      final response =
+          await http.patch(url, body: json.encode(product.toJson()));
+
+      if (response.statusCode != 200) {
+        throw Exception(json.decode(response.body)['error']);
+      }
+
+      return true;
+    } catch (error) {
+      print(error);
+      return false;
+    }
+  }
+
+  Future<bool> deleteProduct(String id) async {
+    try {
+      final url = Uri.parse('$databaseUrl/products/$id.json?auth=$token');
+      final response = await http.delete(url);
+
+      if (response.statusCode != 200) {
+        throw Exception(json.decode(response.body)['error']);
+      }
+
+      return true;
+    } catch (error) {
+      print(error);
+      return false;
     }
   }
 }
