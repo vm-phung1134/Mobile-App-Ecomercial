@@ -4,10 +4,6 @@ import 'package:shop_app/ui/cart/views/cart_screen.dart';
 import 'package:shop_app/ui/homepage/components/body.dart';
 import 'package:shop_app/ui/homepage/components/navbar.dart';
 import 'package:shop_app/ui/product/view/product_overview.dart';
-import 'package:shop_app/ui/product/view/user_products_screen.dart';
-import 'package:shop_app/ui/search/search_screen.dart';
-import 'package:shop_app/ui/user_profile/logout.dart';
-import 'package:shop_app/ui/product/view/user_products_screen.dart';
 
 class Home extends StatefulWidget {
   static const routeName = '/home';
@@ -22,7 +18,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return DefaultTabController(
       initialIndex: 0,
-      length: 4,
+      length: 3,
       child: Scaffold(
         drawer: Navbar(),
         appBar: AppBar(
@@ -60,12 +56,9 @@ class _HomeState extends State<Home> {
               Tab(
                 icon: Icon(Icons.shopping_cart, color: Colors.black),
               ),
-              Tab(
-                icon: Icon(Icons.person, color: Colors.black),
-              ),
             ],
           ),
-          titleSpacing: 25,
+          titleSpacing: 30,
         ),
         body: const TabBarView(
           children: <Widget>[
@@ -77,9 +70,6 @@ class _HomeState extends State<Home> {
             ),
             Center(
               child: CartScreeen(),
-            ),
-            Center(
-              child: UserProfileScreen(),
             ),
           ],
         ),
