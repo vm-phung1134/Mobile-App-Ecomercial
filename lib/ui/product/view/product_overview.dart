@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_app/ui/product/components/product_grid.dart';
 import 'package:shop_app/ui/product/components/product_manager.dart';
-import 'package:shop_app/ui/product/view/product_detail.dart';
 
 enum FilterOptions { favorites, all }
 
@@ -67,7 +66,7 @@ class _ProductsOverviewState extends State<ProductsOverview> {
       child: Padding(
           padding: const EdgeInsets.all(4.0),
           child: TextFormField(
-            controller: searchValueController,
+            // controller: searchValueController,
             onChanged: (text) {
               setState(() {
                 searchValue = text;
