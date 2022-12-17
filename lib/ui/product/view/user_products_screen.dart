@@ -18,6 +18,7 @@ class UserProductsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Quản lý sản phẩm"),
+        backgroundColor: Colors.black,
       ),
       // drawer: const AppDrawer(),
       body: Padding(
@@ -55,6 +56,8 @@ class UserProductsScreen extends StatelessWidget {
     return SizedBox(
         height: 50.0,
         child: ElevatedButton(
+            style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.black)),
             child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,

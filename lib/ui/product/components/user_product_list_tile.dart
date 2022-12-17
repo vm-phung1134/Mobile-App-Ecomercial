@@ -52,7 +52,7 @@ class UserProductListTile extends StatelessWidget {
         Navigator.of(context)
             .pushNamed(EditProductScreen.routeName, arguments: product.id);
       },
-      color: Theme.of(context).primaryColor,
+      color: Colors.black,
     );
   }
 }

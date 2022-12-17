@@ -83,9 +83,9 @@ class _AuthCardState extends State<AuthCard> {
       ),
       elevation: 8.0,
       child: Container(
-        height: _authMode == AuthMode.signup ? 320 : 260,
+        height: _authMode == AuthMode.signup ? 360 : 300,
         constraints:
-            BoxConstraints(minHeight: _authMode == AuthMode.signup ? 320 : 260),
+            BoxConstraints(minHeight: _authMode == AuthMode.signup ? 360 : 300),
         width: deviceSize.width * 0.75,
         padding: const EdgeInsets.all(16.0),
         child: Form(
@@ -119,7 +119,7 @@ class _AuthCardState extends State<AuthCard> {
                   },
                 ),
                 const SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
                 _buildAuthModeSwitchButton(),
               ],
@@ -134,7 +134,7 @@ class _AuthCardState extends State<AuthCard> {
     return TextButton(
       onPressed: _switchAuthMode,
       style: TextButton.styleFrom(
-        padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 4),
+        padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 4),
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         textStyle: TextStyle(
           color: Theme.of(context).primaryColor,
@@ -172,8 +172,6 @@ class _AuthCardState extends State<AuthCard> {
           borderRadius: BorderRadius.circular(25.0),
         ),
         hintStyle: TextStyle(color: Colors.grey[600]),
-        isDense: true,
-        contentPadding: const EdgeInsets.fromLTRB(4, 2, 4, 2),
       ),
       obscureText: true,
       validator: _authMode == AuthMode.signup

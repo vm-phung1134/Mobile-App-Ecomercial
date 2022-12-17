@@ -34,26 +34,28 @@ class ProductGridTile extends StatelessWidget {
 
   Widget buildGridFooterBar(BuildContext context) {
     return GridTileBar(
-      backgroundColor: Color.fromARGB(115, 24, 24, 24),
-      leading: IconButton(
-        icon: const Icon(Icons.favorite),
-        color: Theme.of(context).colorScheme.secondary,
-        onPressed: () {
-          print('Toggle a favorate product');
-        },
-      ),
+      backgroundColor: const Color.fromARGB(115, 24, 24, 24),
+      // leading: IconButton(
+      //   icon: const Icon(Icons.favorite),
+      //   color: Theme.of(context).colorScheme.secondary,
+      //   onPressed: () {
+      //     print('Toggle a favorate product');
+      //   },
+      // ),
       title: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
             product.title,
-            style: TextStyle(
-              fontSize: 16,
+            style: const TextStyle(
+              fontSize: 14,
             ),
-            textAlign: TextAlign.center,
+            textAlign: TextAlign.left,
           ),
           Text(
             '\$${product.price}',
-            textAlign: TextAlign.justify,
+            textAlign: TextAlign.left,
           )
         ],
       ),

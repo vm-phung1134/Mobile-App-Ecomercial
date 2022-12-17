@@ -4,6 +4,8 @@ import 'package:provider/provider.dart';
 import '../../auth/auth_manager.dart';
 
 class Navbar extends StatelessWidget {
+  const Navbar({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -12,10 +14,8 @@ class Navbar extends StatelessWidget {
           UserAccountsDrawerHeader(
             accountName: Text(
               'PPul Store',
-              style: Theme.of(context)
-                  .textTheme
-                  .subtitle1!
-                  .copyWith(fontSize: 23, color: Color.fromARGB(255, 0, 0, 0)),
+              style: Theme.of(context).textTheme.subtitle1!.copyWith(
+                  fontSize: 23, color: const Color.fromARGB(255, 0, 0, 0)),
             ),
             accountEmail: Text('3/2 -- NINH KIỀU - CẦN THƠ',
                 style: Theme.of(context).textTheme.subtitle2),
@@ -33,41 +33,41 @@ class Navbar extends StatelessWidget {
                 const BoxDecoration(color: Color.fromARGB(255, 176, 202, 255)),
           ),
           ListTile(
-            leading: Icon(Icons.pages),
-            title: Text('TRANG CHỦ'),
+            leading: const Icon(Icons.pages),
+            title: const Text('TRANG CHỦ'),
             onTap: () => null,
           ),
           ListTile(
-            leading: Icon(Icons.propane_rounded),
-            title: Text('SẢN PHẨM'),
+            leading: const Icon(Icons.propane_rounded),
+            title: const Text('SẢN PHẨM'),
             onTap: () => null,
           ),
           ListTile(
-            leading: Icon(Icons.category),
-            title: Text('BỘ SƯU TẬP'),
+            leading: const Icon(Icons.category),
+            title: const Text('BỘ SƯU TẬP'),
             onTap: () => null,
           ),
           ListTile(
-            leading: Icon(Icons.book),
-            title: Text('ĐƠN HÀNG'),
+            leading: const Icon(Icons.book),
+            title: const Text('ĐƠN HÀNG'),
             onTap: () => null,
           ),
           Divider(),
           ListTile(
-            leading: Icon(Icons.edit),
-            title: Text('QUẢN LÝ SẢN PHẨM'),
+            leading: const Icon(Icons.edit),
+            title: const Text('QUẢN LÝ SẢN PHẨM'),
             onTap: () {
               Navigator.of(context).pushNamed('/user-products');
             },
           ),
           ListTile(
-            leading: Icon(Icons.support),
-            title: Text('LIÊN HỆ'),
+            leading: const Icon(Icons.support),
+            title: const Text('LIÊN HỆ'),
             onTap: () => null,
           ),
           ListTile(
-            leading: Icon(Icons.exit_to_app),
-            title: Text('ĐĂNG XUẤT'),
+            leading: const Icon(Icons.exit_to_app),
+            title: const Text('ĐĂNG XUẤT'),
             onTap: () {
               context.read<AuthManager>().logout();
               Navigator.of(context).pushReplacementNamed('/auth');
